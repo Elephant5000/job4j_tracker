@@ -2,7 +2,7 @@ package ru.job4j.oop;
 
 public class Animal {
 
-    String name;
+    private String name;
 
     public Animal(String name) {
         super();
