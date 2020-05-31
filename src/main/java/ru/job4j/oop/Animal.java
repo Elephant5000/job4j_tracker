@@ -1,12 +1,16 @@
 package ru.job4j.oop;
 
 public class Animal {
-    public Animal() {
+
+    String name;
+
+    public Animal(String name) {
         super();
+        this.name = name;
         System.out.println(Animal.class);
     }
 
     public static void main(String[] args) {
-        Tiger barsik = new Tiger();
+        Tiger barsik = new Tiger("Barsik");
     }
 }
