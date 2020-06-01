@@ -32,7 +32,7 @@ public class Shop {
         //удаляем значение из ячейки с индексом 1
         //products[1] = null;
         //Shop shop = new Shop();
-        products =delete(products, 1);
+        products = delete(products, 1);
 
 
         for (int i = 0; i < products.length; i++) {
