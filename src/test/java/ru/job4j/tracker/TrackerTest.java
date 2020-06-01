@@ -13,4 +13,25 @@ public class TrackerTest {
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
     }
+
+    @Test
+    public void add() {
+
+    }
+
+    @Test
+    public void findById() {
+    }
+
+    @Test
+    public void findAll() {
+    }
+
+    @Test
+    public void findByName() {
+    }
+
+    @Test
+    public void testFindById() {
+    }
 }
