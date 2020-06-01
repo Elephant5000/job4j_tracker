@@ -4,6 +4,11 @@ public class Animal {
 
     private String name;
 
+    public Animal(){
+        super();
+        System.out.println(Animal.class);
+    }
+
     public Animal(String name) {
         super();
         this.name = name;
