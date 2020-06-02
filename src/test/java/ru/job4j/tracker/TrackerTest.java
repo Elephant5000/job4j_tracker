@@ -15,23 +15,18 @@ public class TrackerTest {
     }
 
     @Test
-    public void add() {
+    public void replace() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("test1");
+        tracker.add(item1);
+        Item item2 = new Item("test2");
+        tracker.add(item2);
+        Item item3 = new Item("test333");
 
-    }
+        Item[] items = tracker.findByName("test2");
+        String idItemForReplace = items[0].getId();
 
-    @Test
-    public void findById() {
-    }
-
-    @Test
-    public void findAll() {
-    }
-
-    @Test
-    public void findByName() {
-    }
-
-    @Test
-    public void testFindById() {
+        Boolean result = tracker.replace(idItemForReplace, item3);
+        assertThat(result, is(true));
     }
 }
