@@ -40,4 +40,29 @@ public class TrackerTest {
         tracker.delete(id);
         assertThat(tracker.findById(id), is(nullValue()));
     }
+
+    @Test
+    public void whenFindById() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("TestFind");
+        tracker.add(item);
+        String id = item.getId();
+        assertThat(tracker.findById(id).getName(), is("TestFind"));
+    }
+
+/*    @Test
+    public void whenFindAll() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("TestFindAll");
+        tracker.add(item);
+        Item[] exp = new Item[1];
+        exp[0].setName("TestFindAll");
+        exp[0].setId(item.getId());
+
+        Item[] rsl = tracker.findAll();
+        assertThat(rsl, is(exp));
+    }
+
+ */
+
 }
