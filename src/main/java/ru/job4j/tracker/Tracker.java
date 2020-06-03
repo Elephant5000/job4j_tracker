@@ -77,7 +77,6 @@ public class Tracker {
     public boolean delete(String id) {
         int idForDel = indexOf(id);
         if (idForDel != -1) {
-            items[idForDel] = null;
             System.arraycopy(items, idForDel + 1, items, idForDel, position - idForDel);
             items[position-1] = null;
             position--;
