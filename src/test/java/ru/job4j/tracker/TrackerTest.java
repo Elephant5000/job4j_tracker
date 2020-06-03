@@ -25,6 +25,7 @@ public class TrackerTest {
         Item newItem = new Item("testNew");
         String idItemForReplace = item1.getId();
         Boolean result = tracker.replace(idItemForReplace, newItem);
+        assertThat(result, is(true));
         assertThat(tracker.findById(idItemForReplace).getName(),is(newItem.getName()));
     }
 
