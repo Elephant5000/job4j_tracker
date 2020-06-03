@@ -25,9 +25,7 @@ public class TrackerTest {
         Item newItem = new Item("testNew");
         String idItemForReplace = item1.getId();
         Boolean result = tracker.replace(idItemForReplace, newItem);
-        assertThat(result, is(true));
-        System.out.println("Before  - " + item1.getId() + " " + item1.getName());
-        System.out.println("After   - " + tracker.findById(idItemForReplace).getId() + " " + tracker.findById(idItemForReplace).getName());
+        assertThat(tracker.findById(idItemForReplace).getName(),is(newItem.getName()));
     }
 
     @Test
@@ -58,16 +56,6 @@ public class TrackerTest {
         Item[] exp = new Item[1];
         exp[0].setName("TestFindAll");
         exp[0].setId(item.getId());
-
-
         assertThat(rsl, is(exp));
     }
-
-/*    Добавили заявку в трекер, потом вызвали метод findAll(),
-    результат вызова записали в переменную. И уже потом получили заявку
-    из этой переменной обратившись к заявке по индексу. Ну а потом
-    можете сравнить имя заявки.
-
-
- */
 }
