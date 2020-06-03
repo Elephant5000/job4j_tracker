@@ -19,7 +19,7 @@ public class StartUI {
                 System.out.println("=== Show all Item ====");
                 Item[] items = tracker.findAll();
                 for (int index = 0; index < items.length; index++) {
-                    System.out.println(items[index].getId() + " " + items[index].getName());
+                    System.out.println(items[index].toString());
                 }
             } else if (select == 2) {
                 System.out.println("=== Edit Item ====");
@@ -46,7 +46,7 @@ public class StartUI {
                 System.out.println("=== Find Item by Id ====");
                 Item item = tracker.findById(scanner.nextLine());
                 if (item != null) {
-                    System.out.println("Result - " + item.getId() + " " + item.getName());
+                    System.out.println("Result - " + item.toString());
                 } else {
                     System.out.println("Not found this Id");
                 }
@@ -56,7 +56,7 @@ public class StartUI {
                 if (items.length > 0) {
                     System.out.println("Result - ");
                     for (int index = 0; index < items.length; index++) {
-                        System.out.println(items[index].getId() + " " + items[index].getName());
+                        System.out.println(items[index].toString());
                     }
                 } else {
                     System.out.println("Not found this name");
