@@ -22,13 +22,12 @@ public class TrackerTest {
         tracker.add(item1);
         Item item2 = new Item("test2");
         tracker.add(item2);
-        Item item3 = new Item("test333");
-
-        Item[] items = tracker.findByName("test2");
-        String idItemForReplace = items[0].getId();
-
-        Boolean result = tracker.replace(idItemForReplace, item3);
+        Item newItem = new Item("testNew");
+        String idItemForReplace = item1.getId();
+        Boolean result = tracker.replace(idItemForReplace, newItem);
         assertThat(result, is(true));
+        System.out.println("Before  - " + item1.getId() + " " + item1.getName());
+        System.out.println("After   - " + tracker.findById(idItemForReplace).getId() + " " + tracker.findById(idItemForReplace).getName());
     }
 
     @Test
@@ -50,19 +49,25 @@ public class TrackerTest {
         assertThat(tracker.findById(id).getName(), is("TestFind"));
     }
 
-/*    @Test
+    @Test
     public void whenFindAll() {
         Tracker tracker = new Tracker();
         Item item = new Item("TestFindAll");
         tracker.add(item);
+        Item[] rsl = tracker.findAll();
         Item[] exp = new Item[1];
         exp[0].setName("TestFindAll");
         exp[0].setId(item.getId());
 
-        Item[] rsl = tracker.findAll();
+
         assertThat(rsl, is(exp));
     }
 
- */
+/*    Добавили заявку в трекер, потом вызвали метод findAll(),
+    результат вызова записали в переменную. И уже потом получили заявку
+    из этой переменной обратившись к заявке по индексу. Ну а потом
+    можете сравнить имя заявки.
 
+
+ */
 }
