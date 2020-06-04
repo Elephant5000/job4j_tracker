@@ -31,9 +31,9 @@ public class StartUI {
 
     public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Edit Item ====");
+        String id = input.askStr("Enter id: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
-        String id = input.askStr("Enter id: ");
         if (tracker.replace(id, item)) {
             System.out.println("Successfully");
         } else {
@@ -50,7 +50,6 @@ public class StartUI {
             System.out.println("Unsuccessfully");
         }
     }
-
 
     public static void findItemById(Input input, Tracker tracker) {
         System.out.println("=== Find Item by Id ====");
