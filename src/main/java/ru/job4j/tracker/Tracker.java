@@ -36,7 +36,7 @@ public class Tracker {
         return index != -1 ? items[index] : null;
     }
 
-    public Item[] findAll(){
+    public Item[] findAll() {
         Item[] itemsWithoutNul = new Item[items.length];
         int size = 0;
         for (int index = 0; index < items.length; index++) {
@@ -49,7 +49,7 @@ public class Tracker {
         return itemsWithoutNul;
     }
 
-    public Item[] findByName(String key){
+    public Item[] findByName(String key) {
         Item[] itemFindName = new Item[items.length];
         int size = 0;
         for (int index = 0; index < items.length; index++) {
@@ -59,7 +59,7 @@ public class Tracker {
                 size++;
             }
         }
-        itemFindName = Arrays.copyOf(itemFindName,size);
+        itemFindName = Arrays.copyOf(itemFindName, size);
         return itemFindName;
     }
 
@@ -78,7 +78,7 @@ public class Tracker {
         int idForDel = indexOf(id);
         if (idForDel != -1) {
             System.arraycopy(items, idForDel + 1, items, idForDel, position - idForDel);
-            items[position-1] = null;
+            items[position - 1] = null;
             position--;
             return true;
         } else return false;
