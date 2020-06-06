@@ -48,18 +48,14 @@ public class TrackerTest {
         assertThat(tracker.findById(id).getName(), is("TestFind"));
     }
 
-/*
-    * Вернуться, доделать. Закоментировано, для сборки без ошибок
     @Test
     public void whenFindAll() {
         Tracker tracker = new Tracker();
         Item item = new Item("TestFindAll");
         tracker.add(item);
         Item[] rsl = tracker.findAll();
-        Item[] exp = new Item[1];
-        exp[0].setName("TestFindAll");
-        exp[0].setId(item.getId());
-        assertThat(rsl, is(exp));
+        Item[] expected = new Item[1];
+        expected[0] = item;
+        assertThat(rsl, is(expected));
     }
- */
 }
