@@ -27,4 +27,16 @@ public class ValidateInputTest {
         int selected = input.askInt("Enter menu:");
         assertThat(selected, is(3));
     }
+
+    @Test
+    public void whenNumberFormatException() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"one", "1"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        int selected = input.askInt("Enter menu:");
+        assertThat(out.toString(), is("Please enter validate data again.\n"));
+    }
+
 }
