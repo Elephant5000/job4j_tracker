@@ -2,6 +2,9 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -19,7 +22,7 @@ public class StartUITest {
                 new ExitAction()
         };
         new StartUI(out).init(in, tracker, actions);
-        assertThat(tracker.findAll()[0].getName(), is("Item name"));
+        assertThat(tracker.findAll().get(0).getName(), is("Item name"));
     }
 
     @Test
@@ -72,7 +75,7 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator()
-                  //     + "0. Exit" + System.lineSeparator()
+                       + "0. === Exit ===" + System.lineSeparator()
         ));
     }
 
@@ -97,9 +100,9 @@ public class StartUITest {
     public void whenFindByNameItem() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        Item[] items = new Item[2];
-        items[0] = tracker.add(new Item("New item"));
-        items[1] = tracker.add(new Item("New item"));
+        List<Item> items = new ArrayList<>();
+        items.add(tracker.add(new Item("New item")));
+        items.add(tracker.add(new Item("New item")));
         Input in = new StubInput(
                 new String[] {"0", "New item", "0", "New item", "1"}
         );
@@ -115,9 +118,9 @@ public class StartUITest {
     public void whenFindAllItem() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
-        Item[] items = new Item[2];
-        items[0] = tracker.add(new Item("First item"));
-        items[1] = tracker.add(new Item("Second item"));
+        List<Item> items = new ArrayList<Item>();
+        items.add(tracker.add(new Item("First item")));
+        items.add(tracker.add(new Item("Second item")));
         Input in = new StubInput(
                 new String[] {"0", "1"}
         );
