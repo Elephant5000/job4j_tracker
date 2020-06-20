@@ -23,7 +23,6 @@ public class Tracker {
 
     private int indexOf(String id) {
         int rsl = -1;
-        rsl = items.indexOf(id);
         for (int index = 0; index < items.size(); index++) {
             if (items.get(index).getId().equals(id)) {
                 rsl = index;
@@ -53,25 +52,24 @@ public class Tracker {
     }
 
     public boolean replace(String id, Item item) {
+        boolean rsl = false;
         int index = indexOf(id);
         if (index != -1) {
             item.setId(id);
             items.set(index, item);
-            return true;
-        } else {
-            return false;
+            rsl = true;
         }
+        return rsl;
     }
 
     public boolean delete(String id) {
+        boolean rsl = false;
         int positionForDel = indexOf(id);
         if (positionForDel != -1) {
             items.remove(positionForDel);
-            return true;
-        } else {
-            return false;
+            rsl = true;
         }
-
+        return rsl;
     }
 
 }
