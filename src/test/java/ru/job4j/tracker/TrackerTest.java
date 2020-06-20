@@ -2,8 +2,8 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.Array;
+import java.util.*;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -61,5 +61,40 @@ public class TrackerTest {
         List<Item> expected = new ArrayList<Item>();
         expected.add(item);
         assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenSortToHighTracker() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("Item1");
+        tracker.add(item1);
+        Item item4 = new Item("Item4");
+        tracker.add(item4);
+        Item item2 = new Item("Item2");
+        tracker.add(item2);
+        Item item3 = new Item("Item3");
+        tracker.add(item3);
+        List<Item> rsl = tracker.findAll();
+        Collections.sort(rsl);
+        List<Item> expected = Arrays.asList(item1, item2, item3, item4);
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenSortToLowTracker() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("Item1");
+        tracker.add(item1);
+        Item item4 = new Item("Item4");
+        tracker.add(item4);
+        Item item2 = new Item("Item2");
+        tracker.add(item2);
+        Item item3 = new Item("Item3");
+        tracker.add(item3);
+        List<Item> rsl = tracker.findAll();
+        Collections.sort(rsl, Collections.reverseOrder());
+        List<Item> expected = Arrays.asList(item4, item3, item2, item1);
+        assertThat(rsl, is(expected));
+
     }
 }
