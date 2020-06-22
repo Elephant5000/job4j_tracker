@@ -4,8 +4,7 @@ public class Book {
     private String name;
     private int number;
 
-    public Book(){
-
+    public Book() {
     }
 
     public Book(String name, int number) {
