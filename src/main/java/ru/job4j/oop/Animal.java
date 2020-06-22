@@ -4,7 +4,7 @@ public class Animal {
 
     private String name;
 
-    public Animal(){
+    public Animal() {
         super();
         System.out.println(Animal.class);
     }
