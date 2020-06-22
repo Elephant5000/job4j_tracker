@@ -14,15 +14,14 @@ public class LexSort implements Comparator<String> {
     }
 
     private List<Integer> intTaskNumber(String str) {
-        String s = str.toString();
         List<Integer> rsl = new ArrayList<Integer>();
-        int separator = s.indexOf('.');
+        int separator = str.indexOf('.');
         while (separator != -1) {
-            String task = s.substring(0, separator);
+            String task = str.substring(0, separator);
             if (stringIsInt(task)) {
                 rsl.add(Integer.valueOf(task));
-                s = s.substring(separator + 1, s.length());
-                separator = s.indexOf('.');
+                str = str.substring(separator + 1, str.length());
+                separator = str.indexOf('.');
             } else {
                 break;
             }
