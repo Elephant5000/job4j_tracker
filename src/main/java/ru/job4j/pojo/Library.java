@@ -2,7 +2,7 @@ package ru.job4j.pojo;
 
 public class Library {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Book[] book = new Book[4];
         book[0] = new Book("Java", 1000);
         book[1] = new Book("Python", 900);

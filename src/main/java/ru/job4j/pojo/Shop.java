@@ -2,17 +2,17 @@ package ru.job4j.pojo;
 
 public class Shop {
 
-    public static Product[] delete(Product[] products, int index){
+    public static Product[] delete(Product[] products, int index) {
         products[index] = null;
         for (int ind = index; ind < products.length - 1; ind++) {
-            products[ind] = products[ind+1];
+            products[ind] = products[ind + 1];
         }
         products[products.length - 1] = null;
         return products;
     }
 
     public static void main(String[] args) {
-        Product products[] = new Product[5];
+        Product[] products = new Product[5];
         products[0] = new Product("Milk", 10);
         products[1] = new Product("Bread", 4);
         products[2] = new Product("Egg", 19);
@@ -29,9 +29,6 @@ public class Shop {
 
         System.out.println();
         System.out.println("Удаляем значение из ячейки с индексом 1");
-        //удаляем значение из ячейки с индексом 1
-        //products[1] = null;
-        //Shop shop = new Shop();
         products = delete(products, 1);
 
 
