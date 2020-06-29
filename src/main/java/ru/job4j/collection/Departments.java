@@ -10,7 +10,7 @@ public class Departments {
         for (String value : deps) {
             String start = "";
             for (String el : value.split("/")) {
-                if (start == "") {
+                if (start.isEmpty()) {
                     tmp.add(el);
                     start = el;
                 } else {
@@ -19,9 +19,7 @@ public class Departments {
                 }
             }
         }
-        for (String el: tmp) {
-            rsl.add(el);
-        }
+        rsl.addAll(tmp);
         return rsl;
     }
 
