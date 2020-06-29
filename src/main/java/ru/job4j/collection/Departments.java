@@ -19,9 +19,7 @@ public class Departments {
                 }
             }
         }
-        for (String el: tmp) {
-            rsl.add(el);
-        }
+        rsl.addAll(tmp);
         return rsl;
     }
 
