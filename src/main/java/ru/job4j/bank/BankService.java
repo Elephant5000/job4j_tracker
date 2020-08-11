@@ -24,14 +24,7 @@ public class BankService {
     }
 
     public User findByPassport(String passport) {
-        User rsl = null;
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
-                rsl = user;
-                break;
-            }
-        }
-        return rsl;
+        return users.keySet().stream().filter(user -> user.getPassport().equals(passport)).findFirst().orElse(null);
     }
 
     public Account findByRequisite(String passport, String requisite) {
@@ -40,12 +33,7 @@ public class BankService {
         if (user != null) {
             List<Account> accounts = this.users.get(user);
             if (accounts != null) { // Эту проверку поставил для цикла, ибо при account - null, он дает ошибку.
-                for (Account account : accounts) {
-                    if (account.getRequisite().equals(requisite)) {
-                        rsl = account;
-                        break;
-                    }
-                }
+                rsl = accounts.stream().filter(account -> account.getRequisite().equals(requisite)).findFirst().orElse(null);
             }
         }
         return rsl;
