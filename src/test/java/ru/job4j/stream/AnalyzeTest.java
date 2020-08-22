@@ -51,8 +51,9 @@ public class AnalyzeTest {
                 ).stream()
         );
         assertThat(average, is(List.of(
-                new Tuple("Math", 80D),
-                new Tuple("Lang", 80D)
+                new Tuple("Lang", 80D),
+                new Tuple("Math", 80D)
+
         )));
     }
 
@@ -69,7 +70,7 @@ public class AnalyzeTest {
 
     @Test
     public void whenBestSubject() {
-        Tuple best = Analyze.bestStudent(
+        Tuple best = Analyze.bestSubject(
                 List.of(
                         new Pupil("Ivanov", List.of(new Subject("Math", 100), new Subject("Lang", 40))),
                         new Pupil("Petrov", List.of(new Subject("Math", 60), new Subject("Lang", 60)))
