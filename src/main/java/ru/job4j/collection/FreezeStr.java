@@ -1,27 +1,23 @@
 package ru.job4j.collection;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class FreezeStr {
-
-    private static List<Character> stringToList(String str) {
-        List<Character> rsl = new LinkedList<>();
-        for (int index = 0; index < str.length(); index++) {
-            rsl.add(str.charAt(index));
-        }
-        return rsl;
-    }
 
     public static boolean eq(String left, String right) {
         boolean rsl = true;
         if (left.length() == right.length()) {
-            List<Character> leftStr = stringToList(left);
-            List<Character> rightStr = stringToList(right);
-            for (Character character : leftStr) {
-                if (rightStr.contains(character)) {
-                    rightStr.remove(character);
+            Map<Character, Integer> leftStr = new HashMap<>();
+            for (Character character : left.toCharArray()) {
+                if (leftStr.containsKey(character)) {
+                    leftStr.put(character, leftStr.get(character) + 1);
+                } else {
+                    leftStr.put(character, 1);
+                }
+            }
+            for (Character character : right.toCharArray()) {
+                if (leftStr.containsKey(character) && leftStr.get(character) > 0) {
+                        leftStr.put(character, leftStr.get(character) -1);
                 } else {
                     rsl = false;
                     break;
